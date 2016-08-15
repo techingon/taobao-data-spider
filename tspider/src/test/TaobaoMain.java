@@ -24,11 +24,36 @@ public class TaobaoMain {
 	private static final String RegexpForItemConfirmGoodsItems = "confirmGoods:\\s*(\\d*)";
 
 	public static void main(String[] args) throws InterruptedException {
-		String fileName = "/Users/max/test/data_"
-				+ System.currentTimeMillis()+ ".xls";
+		String fileName = "/Users/yaohongwei/data_"
+				+ System.currentTimeMillis() + ".xls";
 		ExcelWrite we = new ExcelWrite();
-		String names[] = {/*"阿克白 巴斯夫", "尊保 巴斯夫", */"百泰 巴斯夫"
-		};
+		String names[] = { /*"先正达 泰草达", */"先正达 世高", "先正达 丰杰", "先正达 亮盾", "先正达 功夫",
+				"先正达 势克", "先正达 劲彪", "先正达 大能", "先正达 宝剑", "先正达 宝路", "先正达 山德生",
+				"先正达 敌力脱", "先正达 杀毒矾", "先正达 杨彩", "先正达 满适金", "先正达 爱秀", "先正达 爱苗",
+				"先正达 瑞凡", "先正达 瑞飞特", "先正达 福奇", "先正达 福戈", "先正达 秀特", "先正达 立收谷",
+				"先正达 绿妃", "先正达 美除", "先正达 耕杰", "先正达 艾科顿", "先正达 菲格", "先正达 虎威",
+				"先正达 达科宁", "先正达 迈舒平", "先正达 适乐时", "先正达 适麦丹", "先正达 金都尔",
+				"先正达 金阿普隆", "先正达 金雷", "先正达 金雷多米尔", "先正达 锐胜", "先正达 阿克泰",
+				"先正达 阿立卡", "先正达 阿米多彩", "先正达 阿米妙收", "先正达 阿米西达", "先正达 顶峰",
+				"先正达 麦极", "巴斯夫 健武", "巴斯夫 健达", "巴斯夫 凯泽", "巴斯夫 凯润", "巴斯夫 凯特",
+				"巴斯夫 品润", "巴斯夫 宿迁", "巴斯夫 尊保", "巴斯夫 尊宝", "巴斯夫 巴佰金", "巴斯夫 帕力特",
+				"巴斯夫 德劲", "巴斯夫 成标", "巴斯夫 扑力猛", "巴斯夫 排草丹", "巴斯夫 施田补", "巴斯夫 欧博",
+				"巴斯夫 欧宝", "巴斯夫 灭百可", "巴斯夫 田普", "巴斯夫 百垄通", "巴斯夫 百泰", "巴斯夫 翠泽",
+				"巴斯夫 翠贝", "巴斯夫 艾法迪", "巴斯夫 苞卫", "巴斯夫 谷欢", "巴斯夫 阿克白", "巴斯夫 除尽",
+				"拜耳 稳特", "拜耳 路富达", "拜耳 爱玉优", "拜耳 拜宝玛", "拜耳 世玛", "拜耳 亩旺特",
+				"拜耳 保试达", "拜耳 大骠马", "拜耳 好力克", "拜耳 威霸", "拜耳 安泰生", "拜耳 富力库",
+				"拜耳 康福多", "拜耳 拿敌稳", "拜耳 敌杀死", "拜耳 施佳乐", "拜耳 普力克", "拜耳 稻腾",
+				"拜耳 立克秀", "拜耳 艾美乐", "拜耳 螨危", "拜耳 酷毕", "拜耳 银法利", "拜耳 阔世玛",
+				"拜耳 霉多克", "拜耳 露娜森", "拜耳 骠马", "拜耳 高巧", "杜邦 增威赢绿", "杜邦 万兴",
+				"杜邦 万灵", "杜邦 倍内威", "杜邦 克露", "杜邦 农得时", "杜邦 凯恩", "杜邦 可杀得2000",
+				"杜邦 可杀得3000", "杜邦 奥得腾", "杜邦 安打", "杜邦 宝成", "杜邦 巨星", "杜邦 康宽",
+				"杜邦 抑快净", "杜邦 新得力", "杜邦 易保", "杜邦 普尊", "杜邦 福星", "杜邦 稻将",
+				"杜邦 阿砣", "陶氏 乐斯本", "陶氏 优先", "陶氏 使它隆", "陶氏 信生", "陶氏 农地乐",
+				"陶氏 农地隆", "陶氏 千金", "陶氏 卡拉生", "陶氏 可立施", "陶氏 大生", "陶氏 大生富",
+				"陶氏 大生绿", "陶氏 大生-绿", "陶氏 应得", "陶氏 开路生", "陶氏 普瑞麦", "陶氏 果尔",
+				"陶氏 满秋", "陶氏 特福力", "陶氏 盖灌能", "陶氏 盖草能", "陶氏 稻喜", "陶氏 稻杰",
+				"陶氏 稻欢", "陶氏 艾绿士", "陶氏 赛深", "陶氏 赛纳松", "陶氏 陶斯安", "陶氏 陶斯杰",
+				"陶氏 雷通", "陶氏 麦喜", "陶氏 龙拳" };
 		for (String name : names) {
 			int page = 0;
 			List<Auction> as_ = new ArrayList<Auction>();
@@ -36,11 +61,13 @@ public class TaobaoMain {
 				TaobaoSearchDTO tsd = null;
 				tsd = parse(name, page);
 				List<Auction> as = null;
-				if("show".equals(tsd.getMods().getTips().getStatus())){
-					System.err.println(tsd.getMods().getTips().getData().getHtml());
-					if(tsd.getMods().getTips().getData().getHtml().contains("抱歉！没有找到")){
+				if ("show".equals(tsd.getMods().getTips().getStatus())) {
+					System.err.println(tsd.getMods().getTips().getData()
+							.getHtml());
+					if (tsd.getMods().getTips().getData().getHtml()
+							.contains("抱歉！没有找到")) {
 						break;
-					}else{
+					} else {
 						System.err.println("go on...");
 					}
 				}
@@ -54,7 +81,7 @@ public class TaobaoMain {
 				if (as == null || as.size() < 1) {
 					break;
 				}
-				as_.addAll(as);//http://item.taobao.com/item.htm?id=35051514137&ns=1&abbucket=0#detail
+				as_.addAll(as);// http://item.taobao.com/item.htm?id=35051514137&ns=1&abbucket=0#detail
 				page += 44;
 				Thread.sleep(200);
 			}
@@ -64,12 +91,12 @@ public class TaobaoMain {
 					continue;
 				}
 				try {
-					parseCount_M(name, auction);
+					parseCount_PC(name, auction);
 				} catch (Exception e) {
 					System.err.println("sales monthly " + e.getMessage());
-					Thread.sleep(1000*60*10);
+					Thread.sleep(1000 * 60 * 10);
 				}
-				Thread.sleep(1000+(int)(Math.random()*2000));
+				Thread.sleep(1000 + (int) (Math.random() * 2000));
 			}
 			boolean result = we.write(fileName, as_, name);
 			System.out.println("Write Excel For +" + name + ":" + result);
@@ -80,57 +107,66 @@ public class TaobaoMain {
 
 	}
 
-	private static void parseCount_M(String key, Auction auction) throws UnsupportedEncodingException {
+	private static void parseCount_M(String key, Auction auction)
+			throws UnsupportedEncodingException {
 		String result = null;
 		/**
-		 * http://h5.m.taobao.com/awp/core/detail.htm?id=40597168510&ns=1&abbucket=0#detail
-		 * https://item.taobao.com/item.htm?id=40597168510&ns=1&abbucket=0#detail
+		 * http://h5.m.taobao.com/awp/core/detail.htm?id=40597168510&ns=1&
+		 * abbucket=0#detail
+		 * https://item.taobao.com/item.htm?id=40597168510&ns=1
+		 * &abbucket=0#detail
 		 */
-//		System.out.println("url:"+auction.getDetail_url());
-//		String url = auction.getDetail_url();
-//		if(!url.startsWith("http")){
-//			url = "https:"+url;
-//		}
-		String url = "http://h5.m.taobao.com/awp/core/detail.htm?id="+auction.getNid()+"&ns=1&abbucket=0#detail";
-		System.out.println("url:"+url);
+		System.out.println("url:" + auction.getDetail_url());
+		String url = auction.getDetail_url();
+		if (!url.startsWith("http")) {
+			url = "https:" + url;
+		}
+		// String url =
+		// "http://h5.m.taobao.com/awp/core/detail.htm?id="+auction.getNid()+"&ns=1&abbucket=0#detail";
+		// System.out.println("url:"+url);
 		result = BrowserSimulator.parse(url);
-//		result = IOUtil.httpGetToJson(url,"utf-8");
+		// result = IOUtil.httpGetToJson(url,"utf-8");
+		System.out.println(result);
 		Pattern p = Pattern.compile(RegexpForItemCount_M,
 				Pattern.CASE_INSENSITIVE);
 		Matcher m0 = p.matcher(result);
 		if (m0.find()) {
 			String mount = m0.group(1);
-			System.out.println(key+" monthly sale:"+mount);
+			System.out.println(key + " monthly sale:" + mount);
 			auction.setSalesMonthly(mount);
 		} else {
 			System.err.println("Not find sales monthly of --- "
 					+ auction.getRaw_title());
 		}
 	}
-	
-	private static void parseCount_PC(String key, Auction auction) throws UnsupportedEncodingException {
+
+	private static void parseCount_PC(String key, Auction auction)
+			throws UnsupportedEncodingException {
 		String result = null;
 		/**
-		 * http://h5.m.taobao.com/awp/core/detail.htm?id=40597168510&ns=1&abbucket=0#detail
-		 * https://item.taobao.com/item.htm?id=40597168510&ns=1&abbucket=0#detail
+		 * http://h5.m.taobao.com/awp/core/detail.htm?id=40597168510&ns=1&
+		 * abbucket=0#detail
+		 * https://item.taobao.com/item.htm?id=40597168510&ns=1
+		 * &abbucket=0#detail
 		 */
-		System.out.println("url:"+auction.getDetail_url());
+		// System.out.println("url:"+auction.getDetail_url());
 		String url = auction.getDetail_url();
-		if(!url.startsWith("http")){
-			url = "https:"+url;
+		if (!url.startsWith("http")) {
+			url = "https:" + url;
 		}
-//		url = "http://h5.m.taobao.com/awp/core/detail.htm?id="+auction.getNid()+"&ns=1&abbucket=0#detail";
-		System.out.println("url:"+url);
-//		result = BrowserSimulator.parse(url);
-		result = IOUtil.httpGetToJson(url,"gbk");
-//		System.out.println(result);
+		// url =
+		// "http://h5.m.taobao.com/awp/core/detail.htm?id="+auction.getNid()+"&ns=1&abbucket=0#detail";
+		System.out.println("url:" + url);
+		// result = BrowserSimulator.parse(url);
+		result = IOUtil.httpGetToJson(url, "gbk");
+		// System.out.println(result);
 		Pattern itemsPattern = Pattern.compile(RegexpForItemCountURL,
 				Pattern.CASE_INSENSITIVE);
 		Matcher m = itemsPattern.matcher(result);
 		if (m.find()) {
 			String json = m.group(1);
-			 System.out.println("monthly count url:https:"+json);
-			String r = IOUtil.httpGetToJson("https:"+json,"gbk");
+			System.out.println("monthly count url:https:" + json);
+			String r = IOUtil.httpGetToJson("https:" + json, "gbk");
 			System.out.println(key + ":" + r);
 			Pattern p = Pattern.compile(RegexpForItemCount,
 					Pattern.CASE_INSENSITIVE);
@@ -141,15 +177,16 @@ public class TaobaoMain {
 				System.err.println("Not find sales monthly of --- "
 						+ auction.getRaw_title());
 			}
-			
+
 			p = Pattern.compile(RegexpForItemConfirmGoodsItems,
 					Pattern.CASE_INSENSITIVE);
 			m0 = p.matcher(r);
 			if (m0.find()) {
 				auction.setConfirmGoods(m0.group(1));
 			} else {
-				System.err.println("Not find confirm goods count monthly of --- "
-						+ auction.getRaw_title());
+				System.err
+						.println("Not find confirm goods count monthly of --- "
+								+ auction.getRaw_title());
 			}
 		}
 	}
@@ -175,7 +212,7 @@ public class TaobaoMain {
 		String result = "";
 		try {
 			result = IOUtil.httpGetToJson("https://s.taobao.com/search?q="
-					+ URLEncoder.encode(name,"utf-8") + "&s=" + page,"utf-8");
+					+ URLEncoder.encode(name, "utf-8") + "&s=" + page, "utf-8");
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
@@ -184,7 +221,7 @@ public class TaobaoMain {
 		Matcher m = itemsPattern.matcher(result);
 		if (m.find()) {
 			String json = m.group(1);
-//			System.out.println("list:"+json);
+			// System.out.println("list:"+json);
 			TaobaoSearchDTO tsd = JSONUtil.getFromJSON(json,
 					TaobaoSearchDTO.class);
 			System.out.println(name + " page:" + page + " json length:"
@@ -192,9 +229,9 @@ public class TaobaoMain {
 			return tsd;
 		}
 
-		System.err.println(name+" error response: "+result);
+		System.err.println(name + " error response: " + result);
 		return null;
 
 	}
-	
+
 }

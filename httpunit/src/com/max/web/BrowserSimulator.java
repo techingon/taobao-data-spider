@@ -28,7 +28,7 @@ public class BrowserSimulator {
 					.getPage(url);
 			//http://h5.m.taobao.com/awp/core/detail.htm?id=40597168510&ns=1&abbucket=0#detail
 //			log.info("Content:"+page.asText());
-			Thread.sleep(4000);
+			Thread.sleep(5000);
 			String result = page.asText();
 			page.cleanUp();
 			return result;
